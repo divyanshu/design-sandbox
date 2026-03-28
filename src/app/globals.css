@@ -1,0 +1,172 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: BlinkMacSystemFont, -apple-system, "Segoe UI", "Oxygen Sans", Ubuntu, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", "Oxygen Mono", "Ubuntu Mono", monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ─── Sandbox base tokens (neutral defaults) ──────────────────────────────── */
+/* These power the sandbox hub UI. Design system pages use their own           */
+/* scoped token blocks (e.g. .ds-base) and don't inherit from here.            */
+
+:root {
+  --background:              #FFFFFF;
+  --foreground:              #09090B;
+  --card:                    #FFFFFF;
+  --card-foreground:         #09090B;
+  --popover:                 #FFFFFF;
+  --popover-foreground:      #09090B;
+  --primary:                 #18181B;
+  --primary-foreground:      #FAFAFA;
+  --secondary:               #F4F4F5;
+  --secondary-foreground:    #18181B;
+  --muted:                   #F4F4F5;
+  --muted-foreground:        #71717A;
+  --accent:                  #F4F4F5;
+  --accent-foreground:       #18181B;
+  --destructive:             #EF4444;
+  --destructive-foreground:  #FAFAFA;
+  --border:                  #E4E4E7;
+  --input:                   #E4E4E7;
+  --ring:                    #18181B;
+  --radius:                  0.5rem;
+  --chart-1:                 #2563EB;
+  --chart-2:                 #16A34A;
+  --chart-3:                 #D97706;
+  --chart-4:                 #7C3AED;
+  --chart-5:                 #DC2626;
+  --sidebar:                 #FAFAFA;
+  --sidebar-foreground:      #09090B;
+  --sidebar-primary:         #18181B;
+  --sidebar-primary-foreground: #FAFAFA;
+  --sidebar-accent:          #F4F4F5;
+  --sidebar-accent-foreground: #18181B;
+  --sidebar-border:          #E4E4E7;
+  --sidebar-ring:            #18181B;
+}
+
+.dark {
+  --background:              #09090B;
+  --foreground:              #FAFAFA;
+  --card:                    #09090B;
+  --card-foreground:         #FAFAFA;
+  --popover:                 #09090B;
+  --popover-foreground:      #FAFAFA;
+  --primary:                 #FAFAFA;
+  --primary-foreground:      #18181B;
+  --secondary:               #27272A;
+  --secondary-foreground:    #FAFAFA;
+  --muted:                   #27272A;
+  --muted-foreground:        #A1A1AA;
+  --accent:                  #27272A;
+  --accent-foreground:       #FAFAFA;
+  --destructive:             #7F1D1D;
+  --destructive-foreground:  #FAFAFA;
+  --border:                  #27272A;
+  --input:                   #27272A;
+  --ring:                    #D4D4D8;
+  --chart-1:                 #3B82F6;
+  --chart-2:                 #22C55E;
+  --chart-3:                 #F59E0B;
+  --chart-4:                 #A78BFA;
+  --chart-5:                 #EF4444;
+  --sidebar:                 #18181B;
+  --sidebar-foreground:      #FAFAFA;
+  --sidebar-primary:         #3B82F6;
+  --sidebar-primary-foreground: #FAFAFA;
+  --sidebar-accent:          #27272A;
+  --sidebar-accent-foreground: #FAFAFA;
+  --sidebar-border:          #27272A;
+  --sidebar-ring:            #D4D4D8;
+}
+
+/* ─── Base Design System — Soft Violet ────────────────────────────────────── */
+/* Scoped to .ds-base — coexists with sandbox tokens without conflict.         */
+/* Swap these ~25 values to retheme the entire system.                         */
+
+.ds-base {
+  --background:           #F9F8FF;
+  --foreground:           #1E1B2E;
+  --card:                 #FFFFFF;
+  --card-foreground:      #1E1B2E;
+  --popover:              #FFFFFF;
+  --popover-foreground:   #1E1B2E;
+  --primary:              #7C3AED;
+  --primary-foreground:   #FFFFFF;
+  --secondary:            #F3F0FF;
+  --secondary-foreground: #1E1B2E;
+  --muted:                #EDE9FE;
+  --muted-foreground:     #6E6B8A;
+  --accent:               #F5F3FF;
+  --accent-foreground:    #5B21B6;
+  --destructive:          #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border:               #DDD6FE;
+  --input:                #DDD6FE;
+  --ring:                 #7C3AED;
+  --radius:               0.5rem;
+}
+
+.dark .ds-base {
+  --background:           #0F0D1A;
+  --foreground:           #F0EEFF;
+  --card:                 #1A1628;
+  --card-foreground:      #F0EEFF;
+  --popover:              #1A1628;
+  --popover-foreground:   #F0EEFF;
+  --primary:              #A78BFA;
+  --primary-foreground:   #1E1B2E;
+  --secondary:            #1A1628;
+  --secondary-foreground: #F0EEFF;
+  --muted:                #2A2040;
+  --muted-foreground:     #9D8EC4;
+  --accent:               #2A2040;
+  --accent-foreground:    #C4B5FD;
+  --destructive:          #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border:               #2A2040;
+  --input:                #2A2040;
+  --ring:                 #A78BFA;
+}
