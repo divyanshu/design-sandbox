@@ -9,7 +9,7 @@ A shared prototyping environment for design teams, powered by [shadcn/ui](https:
 ## Getting started
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/divyanshu/design-sandbox.git
 cd design-sandbox
 npm install
 npm run dev
@@ -26,9 +26,9 @@ Open [http://localhost:3000](http://localhost:3000) to browse the base component
    git checkout -b prototype/your-feature-name
    ```
 
-2. **Create your prototype directory:**
+2. **Create your prototype directory** — prototypes are nested under your designer folder:
    ```
-   src/app/prototypes/your-feature-name/page.tsx
+   src/app/prototypes/[your-slug]/[feature-name]/page.tsx
    ```
 
 3. **Launch Claude Code** — it will read `CLAUDE.md` and know exactly which components are available and how to use them. Just describe what you want to build.
@@ -65,13 +65,16 @@ src/
 │   ├── your-ds/       ← Your design system components
 │   ├── extended/      ← Reusable components built during prototyping
 │   └── ui/            ← Base shadcn components — DO NOT MODIFY
-├── app/
-│   ├── page.tsx       ← Homepage (localhost:3000)
-│   ├── design-systems/base/  ← Component showcase
-│   └── prototypes/    ← Your prototype work goes here
-│       └── [name]/
-│           └── page.tsx
-└── app/globals.css    ← Design tokens (light + dark)
+└── app/
+    ├── page.tsx       ← Homepage (localhost:3000)
+    ├── design-systems/base/  ← Component showcase
+    ├── prototypes/    ← Prototype work, organised per designer
+    │   ├── registry.ts       ← Register designers and their prototypes
+    │   └── [designer-slug]/
+    │       ├── page.tsx      ← Designer's landing page
+    │       └── [feature-name]/
+    │           └── page.tsx  ← Individual prototype
+    └── globals.css    ← Design tokens (light + dark)
 ```
 
 ---
